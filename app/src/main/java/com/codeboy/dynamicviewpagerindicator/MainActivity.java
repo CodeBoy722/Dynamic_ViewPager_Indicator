@@ -6,18 +6,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView indicator;
-    ViewPager restaurantHolder;
+    private RecyclerView indicator;
+    private ViewPager restaurantHolder;
     private restaurantAdapter restaurantAdapter;
+    private ViewPager.OnPageChangeListener pageListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,37 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeComponents(){
         indicator = findViewById(R.id.indicatorList);
+        indicator.hasFixedSize();
+        indicator.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
         restaurantHolder = findViewById(R.id.restaurants);
+        restaurantHolder.setOffscreenPageLimit(3);
+        restaurantAdapter = new restaurantAdapter(getSupportFragmentManager());
+        restaurantHolder.setAdapter(restaurantAdapter);
+
+
+
+    }
+
+    private void initializeListeners(){
+
+        pageListener = new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        };
+
 
 
     }
