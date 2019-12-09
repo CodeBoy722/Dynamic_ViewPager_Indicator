@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         restaurantAdapter = new restaurantAdapter(getSupportFragmentManager());
         restaurantHolder.setAdapter(restaurantAdapter);
 
-
-
     }
 
     private void initializeListeners(){
