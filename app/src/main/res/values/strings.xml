@@ -1,3 +1,68 @@
 <resources>
+
+
     <string name="app_name">Dynamic ViewPager Indicator</string>
+    <string name="restaurant_name">Restaurant name</string>
+    <string name="restaurant_description">Restaurant Description</string>
+
+    <string-array name="restaurant_names">
+
+        <item>Classic Marie </item>
+        <item>Jully\'s Merry </item>
+        <item>Mr Escanor </item>
+        <item>Pizza Papi </item>
+        <item>The only Wife </item>
+
+    </string-array>
+
+    <string-array name="restaurant_icons">
+
+        <item>ic_classic_marie</item>
+        <item>ic_jully_merry </item>
+        <item>ic_mr_escanor </item>
+        <item>ic_pizza_papi </item>
+        <item>ic_the_only_wife </item>
+
+    </string-array>
+
+    <string-array name="restaurant_descriptions">
+
+        <item> Get a Classic touch of French Cuisine at Classic Marie\'s </item>
+        <item> All Summer is a perfect time to Merry with Jully at Jully\'s Merry </item>
+        <item> Feel the Hero spark in you With Mr Escanor\'s Godly Dishes </item>
+        <item> Get a feel of the Original Culture of Pizza at Pizza Papi\'s </item>
+        <item> You Know your only Real wife is the cool bottle of beer and some nice juicy steak  </item>
+
+    </string-array>
+
+    <string-array name="dishes">
+
+        <item>Whole Roasted Chicken</item>
+        <item>Saffron Bolognese</item>
+        <item>Buttermilk Chicken Tenders</item>
+        <item>French Lingcod</item>
+        <item>Shrimp Orange Gourmet </item>
+
+    </string-array>
+
+    <string-array name="dish_descriptions">
+
+        <item>A Whole chicken on the table is always a great joy</item>
+        <item>An astral dance of saffron and spaghetti </item>
+        <item>Chicken and Buttermilk in a dance of Extasie</item>
+        <item>Lingcod in it supreme expression</item>
+        <item>Some Shrimps are a super match with orange slices</item>
+
+    </string-array>
+
+    <string-array name="dish_icons">
+
+        <item>ic_chicken</item>
+        <item>ic_bolognese</item>
+        <item>ic_buttermilk_chicken</item>
+        <item>ic_lingcod</item>
+        <item>ic_orange_shrimp</item>
+
+    </string-array>
+
 </resources>
