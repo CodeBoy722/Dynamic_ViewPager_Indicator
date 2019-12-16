@@ -4,6 +4,8 @@
     <string name="app_name">Dynamic ViewPager Indicator</string>
     <string name="restaurant_name">Restaurant name</string>
     <string name="restaurant_description">Restaurant Description</string>
+    <string name="the_dish_name">The dish name</string>
+    <string name="the_dish_description">The dish description</string>
 
     <string-array name="restaurant_names">
 

@@ -13,11 +13,10 @@ public class restaurantInfo {
 
     }
 
-    public restaurantInfo(String restaurantName, String description, String logoName, ArrayList<dish> dishes) {
+    public restaurantInfo(String restaurantName, String description, String logoName) {
         this.restaurantName = restaurantName;
         this.description = description;
         this.logoName = logoName;
-        this.dishes = dishes;
     }
 
     public String getRestaurantName() {

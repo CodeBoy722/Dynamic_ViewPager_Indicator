@@ -12,10 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class restuarant extends Fragment {
 
+    private restaurantInfo resto;
     private dishAdapter dishes;
     private RecyclerView dishesList;
+
+    public void setRestaurant(restaurantInfo restaurant) {
+        this.resto = restaurant;
+    }
 
     @Nullable
     @Override
@@ -28,12 +35,45 @@ public class restuarant extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         TextView restuarantName = view.findViewById(R.id.resto_name);
-        restuarantName.setText("");
+        restuarantName.setText(resto.getRestaurantName());
         TextView restaurantDescription = view.findViewById(R.id.resto_description);
-        restaurantDescription.setText("");
+        restaurantDescription.setText(resto.getDescription());
+
+
+        resto.setDishes(getAllDishes());
         dishesList = view.findViewById(R.id.dish_recycler);
         dishesList.hasFixedSize();
         dishesList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        dishAdapter.callback callback = new dishAdapter.callback() {
+            @Override
+            public void onDishClicked() {
+                //add selected dish to user menu
+            }
+        };
+
+        dishAdapter allDishes = new dishAdapter(getActivity(),resto.getDishes(),callback);
+        dishesList.setAdapter(allDishes);
     }
+
+
+    private ArrayList<dish> getAllDishes(){
+
+        //get dishes first
+        ArrayList<dish> dishes = new ArrayList<>();
+        String[] dishNames = this.getResources().getStringArray(R.array.dishes);
+        String[] dishPics = this.getResources().getStringArray(R.array.dish_icons);
+        String[] dishDescription = this.getResources().getStringArray(R.array.dish_descriptions);
+
+        for(int i = 0;i < dishNames.length;i++){
+            String dish_name = dishNames[i];
+            String dish_description = dishDescription[i];
+            String dish_icon = dishPics[i];
+            dish dish = new dish(dish_name,dish_description,dish_icon);
+            dishes.add(dish);
+        }
+        return dishes;
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.codeboy.dynamicviewpagerindicator;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,16 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
     Context RestaurantContx;
     ArrayList<restaurantInfo> restgaurants;
     callback listener;
+    View selectView;
+    ArrayList<indicatorViewHolder> holders;
 
     public indicatorAdapter(Context restaurantContx, ArrayList<restaurantInfo> restgaurants, callback listener) {
         RestaurantContx = restaurantContx;
         this.restgaurants = restgaurants;
         this.listener = listener;
+        holders = new ArrayList<>();
     }
+
 
     @NonNull
     @Override
@@ -37,9 +42,9 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull indicatorViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final indicatorViewHolder holder, final int position) {
         restaurantInfo restaurant = restgaurants.get(position);
-
+        holders.add(holder);
         Resources resources = RestaurantContx.getResources();
         final int resourceId = resources.getIdentifier(restaurant.getLogoName(),"drawable",RestaurantContx.getPackageName());
         Glide.with(RestaurantContx)
@@ -47,13 +52,32 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
                 .apply(new RequestOptions().placeholder(R.drawable.food_background_1).fitCenter())
                 .into(holder.logo);
 
+        if(position == 0){
+            holder.clicker.setBackgroundColor(Color.TRANSPARENT);
+            selectView = holder.clicker;
+        }else {
+            holder.clicker.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.light_black));
+        }
+
+
         holder.clicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                holder.clicker.setBackgroundColor(Color.TRANSPARENT);
+                selectView.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.light_black));
+                selectView = holder.clicker;
                 listener.onTitleClicked(position);
             }
         });
     }
+
+   /* public void selectItem(int position){
+        holders.get(position).clicker.setBackgroundColor(Color.TRANSPARENT);
+        selectView.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.light_black));
+        selectView = holders.get(position).clicker;
+    }*/
+
+
 
     public interface callback{
         void onTitleClicked(int position);
