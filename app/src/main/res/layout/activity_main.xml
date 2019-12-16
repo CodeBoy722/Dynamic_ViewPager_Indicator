@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/food_background_3" />
+            app:srcCompat="@drawable/food_background_1" />
 
 
         <RelativeLayout

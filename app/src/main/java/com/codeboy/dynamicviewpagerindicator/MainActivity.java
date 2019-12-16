@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = calculateInSampleSize(options, 200, 200);
         options.inJustDecodeBounds = false;
-        Bitmap Background = BitmapFactory.decodeResource(getResources(),R.drawable.food_background_3,options);
+        Bitmap Background = BitmapFactory.decodeResource(getResources(),R.drawable.food_background_1,options);
 
         try{
             Palette.from(Background).generate(new Palette.PaletteAsyncListener() {
