@@ -55,9 +55,7 @@ public class MainActivity extends AppCompatActivity {
         indicatorAdapter.callback indicatorCallback = new indicatorAdapter.callback() {
             @Override
             public void onTitleClicked(int position) {
-                //adjust positioning in pager to match title
                 restaurantHolder.setCurrentItem(position);
-
             }
         };
         final indicatorAdapter indicatorAdapter = new indicatorAdapter(this,restauranList,indicatorCallback);
@@ -74,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+               indicatorAdapter.setSelectedIndex(position);
+               indicatorAdapter.notifyDataSetChanged();
                indicator.scrollToPosition(position);
-               //indicatorAdapter.selectItem(position);
             }
 
             @Override

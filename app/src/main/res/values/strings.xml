@@ -44,6 +44,9 @@
         <item>Buttermilk Chicken Tenders</item>
         <item>French Lingcod</item>
         <item>Shrimp Orange Gourmet </item>
+        <item>Warm Lobster Rolls </item>
+        <item>Super Sloppy Joes </item>
+        <item>Crazy Szechuan Beef and Messy Corn with Shishito </item>
 
     </string-array>
 
@@ -54,6 +57,9 @@
         <item>Chicken and Buttermilk in a dance of Extasie</item>
         <item>Lingcod in it supreme expression</item>
         <item>Some Shrimps are a super match with orange slices</item>
+        <item>This stuff will show you what it is like to feel love by the taste</item>
+        <item>You will love the delicious sensation in your mouth </item>
+        <item>Crazy as it says this dish will transport you into another realm </item>
 
     </string-array>
 
@@ -64,6 +70,9 @@
         <item>ic_buttermilk_chicken</item>
         <item>ic_lingcod</item>
         <item>ic_orange_shrimp</item>
+        <item>warm_lobster</item>
+        <item>sloppy_joes</item>
+        <item>beef_and_messy</item>
 
     </string-array>
 

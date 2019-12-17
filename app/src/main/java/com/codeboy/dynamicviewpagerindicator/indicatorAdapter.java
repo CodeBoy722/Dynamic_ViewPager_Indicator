@@ -23,13 +23,14 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
     ArrayList<restaurantInfo> restgaurants;
     callback listener;
     View selectView;
-    ArrayList<indicatorViewHolder> holders;
+    int selectedIndex;
+
 
     public indicatorAdapter(Context restaurantContx, ArrayList<restaurantInfo> restgaurants, callback listener) {
         RestaurantContx = restaurantContx;
         this.restgaurants = restgaurants;
         this.listener = listener;
-        holders = new ArrayList<>();
+        selectedIndex = 0;
     }
 
 
@@ -44,7 +45,6 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
     @Override
     public void onBindViewHolder(@NonNull final indicatorViewHolder holder, final int position) {
         restaurantInfo restaurant = restgaurants.get(position);
-        holders.add(holder);
         Resources resources = RestaurantContx.getResources();
         final int resourceId = resources.getIdentifier(restaurant.getLogoName(),"drawable",RestaurantContx.getPackageName());
         Glide.with(RestaurantContx)
@@ -52,11 +52,12 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
                 .apply(new RequestOptions().placeholder(R.drawable.food_background_1).fitCenter())
                 .into(holder.logo);
 
-        if(position == 0){
+        if(selectedIndex == position){
             holder.clicker.setBackgroundColor(Color.TRANSPARENT);
+            selectedIndex = position;
             selectView = holder.clicker;
         }else {
-            holder.clicker.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.light_black));
+            holder.clicker.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.white_overlay));
         }
 
 
@@ -64,20 +65,19 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
             @Override
             public void onClick(View view) {
                 holder.clicker.setBackgroundColor(Color.TRANSPARENT);
-                selectView.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.light_black));
+                if(selectedIndex != position){
+                    selectView.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.white_overlay));
+                }
                 selectView = holder.clicker;
+                selectedIndex = position;
                 listener.onTitleClicked(position);
             }
         });
     }
 
-   /* public void selectItem(int position){
-        holders.get(position).clicker.setBackgroundColor(Color.TRANSPARENT);
-        selectView.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.light_black));
-        selectView = holders.get(position).clicker;
-    }*/
-
-
+   public void setSelectedIndex(int position){
+      selectedIndex = position;
+   }
 
     public interface callback{
         void onTitleClicked(int position);

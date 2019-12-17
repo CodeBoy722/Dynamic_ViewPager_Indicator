@@ -66,13 +66,21 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
-                android:background="?attr/selectableItemBackground"
-                android:foreground="?attr/selectableItemBackground"
+                android:background="@color/transparent"
                 android:src="@drawable/ic_menu"
-                android:tint="@android:color/white"
-                tools:ignore="UnusedAttribute" />
+                android:tint="@android:color/white" />
 
         </LinearLayout>
+
+        <View
+            android:id="@+id/clickr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            tools:ignore="UnusedAttribute" />
 
     </androidx.cardview.widget.CardView>
 

@@ -10,9 +10,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="1dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp">
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/border_all_round_black_white"
+        app:cardBackgroundColor="@color/transparent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,18 +25,18 @@
                 android:id="@+id/logo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="8"
                 android:layout_marginTop="5dp"
+                android:layout_weight="8"
                 app:srcCompat="@drawable/ic_the_only_wife" />
 
             <RatingBar
                 android:id="@+id/rating"
                 style="@style/RatingBar"
-                android:isIndicator="false"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="2"
                 android:layout_gravity="center"
+                android:layout_weight="2"
+                android:isIndicator="false"
                 android:numStars="5"
                 android:rating="3"
                 android:stepSize="1" />
@@ -44,11 +46,11 @@
             android:id="@+id/clickr"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            android:background="?attr/selectableItemBackground"
-            tools:ignore="UnusedAttribute"/>
+            tools:ignore="UnusedAttribute" />
 
     </androidx.cardview.widget.CardView>
 

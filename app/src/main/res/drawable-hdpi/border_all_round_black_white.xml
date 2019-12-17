@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="30dp"
+                android:topRightRadius="30dp"
+                android:bottomRightRadius="30dp"
+                android:bottomLeftRadius="30dp"/>
+            <!-- draw a 4 dp width border around the rectangle shape -->
+            <stroke android:color="@color/ciel" android:width="0.5dp"/>
+
+            <gradient
+                android:type="linear"
+                android:angle="45"
+                android:startColor="@color/white"
+                android:centerColor="@color/white"
+                android:endColor="@color/white" />
+
+            <size
+                android:width="56dp"
+                android:height="56dp" />
+
+        </shape>
+    </item>
+
+    <item android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="30dp"
+                android:topRightRadius="30dp"
+                android:bottomRightRadius="30dp"
+                android:bottomLeftRadius="30dp"/>
+            <solid android:color="@color/transparent"/>
+        </shape>
+    </item>
+
+
+</layer-list>
