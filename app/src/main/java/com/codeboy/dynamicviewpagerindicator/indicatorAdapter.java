@@ -31,7 +31,7 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
         this.listener = listener;
         selectedIndex = 0;
     }
-    
+
     @NonNull
     @Override
     public indicatorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
