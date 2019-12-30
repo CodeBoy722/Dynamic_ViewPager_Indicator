@@ -17,8 +17,6 @@ import java.util.ArrayList;
 public class restuarant extends Fragment {
 
     private restaurantInfo resto;
-    private dishAdapter dishes;
-    private RecyclerView dishesList;
 
     public void setRestaurant(restaurantInfo restaurant) {
         this.resto = restaurant;
@@ -41,7 +39,7 @@ public class restuarant extends Fragment {
 
 
         resto.setDishes(getAllDishes());
-        dishesList = view.findViewById(R.id.dish_recycler);
+        RecyclerView dishesList = view.findViewById(R.id.dish_recycler);
         dishesList.hasFixedSize();
         dishesList.setLayoutManager(new LinearLayoutManager(getActivity()));
 

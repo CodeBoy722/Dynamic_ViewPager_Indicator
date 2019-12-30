@@ -19,21 +19,19 @@ import java.util.ArrayList;
 
 public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indicatorViewHolder>{
 
-    Context RestaurantContx;
-    ArrayList<restaurantInfo> restgaurants;
-    callback listener;
-    View selectView;
-    int selectedIndex;
+    private Context RestaurantContx;
+    private ArrayList<restaurantInfo> restgaurants;
+    private callback listener;
+    private View selectView;
+    private int selectedIndex;
 
-
-    public indicatorAdapter(Context restaurantContx, ArrayList<restaurantInfo> restgaurants, callback listener) {
+    indicatorAdapter(Context restaurantContx, ArrayList<restaurantInfo> restgaurants, callback listener) {
         RestaurantContx = restaurantContx;
         this.restgaurants = restgaurants;
         this.listener = listener;
         selectedIndex = 0;
     }
-
-
+    
     @NonNull
     @Override
     public indicatorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -53,29 +51,33 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
                 .into(holder.logo);
 
         if(selectedIndex == position){
-            holder.clicker.setBackgroundColor(Color.TRANSPARENT);
+            holder.bottomIndicator.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.white));
+            holder.bottomIndicator.setVisibility(View.VISIBLE);
             selectedIndex = position;
-            selectView = holder.clicker;
+            selectView = holder.bottomIndicator;
         }else {
-            holder.clicker.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.white_overlay));
+            holder.bottomIndicator.setBackgroundColor(Color.TRANSPARENT);
+            holder.bottomIndicator.setVisibility(View.GONE);
         }
 
 
         holder.clicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.clicker.setBackgroundColor(Color.TRANSPARENT);
+                holder.bottomIndicator.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.white));
+                holder.bottomIndicator.setVisibility(View.VISIBLE);
                 if(selectedIndex != position){
-                    selectView.setBackgroundColor(RestaurantContx.getResources().getColor(R.color.white_overlay));
+                    selectView.setBackgroundColor(Color.TRANSPARENT);
+                    selectView.setVisibility(View.GONE);
                 }
-                selectView = holder.clicker;
+                selectView = holder.bottomIndicator;
                 selectedIndex = position;
                 listener.onTitleClicked(position);
             }
         });
     }
 
-   public void setSelectedIndex(int position){
+   void setSelectedIndex(int position){
       selectedIndex = position;
    }
 
@@ -88,17 +90,19 @@ public class indicatorAdapter extends RecyclerView.Adapter<indicatorAdapter.indi
         return restgaurants.size();
     }
 
-    public class indicatorViewHolder extends RecyclerView.ViewHolder {
+    class indicatorViewHolder extends RecyclerView.ViewHolder {
         //define sub views
         ImageView logo;
         RatingBar ratings;
         View clicker;
-        public indicatorViewHolder(@NonNull View itemView) {
+        View bottomIndicator;
+        indicatorViewHolder(@NonNull View itemView) {
             super(itemView);
             //instantiate views
             logo = itemView.findViewById(R.id.logo);
             ratings = itemView.findViewById(R.id.rating);
             clicker = itemView.findViewById(R.id.clickr);
+            bottomIndicator = itemView.findViewById(R.id.bottom_indicator);
         }
     }
 

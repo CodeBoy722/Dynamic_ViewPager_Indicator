@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView indicator;
     private ViewPager restaurantHolder;
-    private restaurantAdapter restaurantAdapter;
-    private ViewPager.OnPageChangeListener pageListener;
     private ArrayList<restaurantInfo> restauranList;
     ImageView background;
     RelativeLayout blur;
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         restaurantHolder = findViewById(R.id.restaurants);
         restaurantHolder.setOffscreenPageLimit(3);
         restaurantHolder.setPageTransformer(true,new ZoomOutPageTransformer());
-       loadData();
+        loadData();
     }
 
     private void loadData(){
@@ -61,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         final indicatorAdapter indicatorAdapter = new indicatorAdapter(this,restauranList,indicatorCallback);
         indicator.setAdapter(indicatorAdapter);
 
-        restaurantAdapter = new restaurantAdapter(getSupportFragmentManager(),FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        MainActivity.restaurantAdapter restaurantAdapter = new restaurantAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         restaurantHolder.setAdapter(restaurantAdapter);
 
-        pageListener = new ViewPager.OnPageChangeListener() {
+        ViewPager.OnPageChangeListener pageListener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -72,11 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-               indicatorAdapter.setSelectedIndex(position);
-               indicatorAdapter.notifyDataSetChanged();
-               indicator.scrollToPosition(position);
+                indicatorAdapter.setSelectedIndex(position);
+                indicatorAdapter.notifyDataSetChanged();
+                indicator.scrollToPosition(position);
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
@@ -147,10 +144,11 @@ public class MainActivity extends AppCompatActivity {
 
     public class restaurantAdapter extends FragmentPagerAdapter{
 
-        public restaurantAdapter(@NonNull FragmentManager fm, int behavior) {
+        restaurantAdapter(@NonNull FragmentManager fm, int behavior) {
             super(fm, behavior);
         }
 
+        @NonNull
         @Override
         public Fragment getItem(int position) {
 
@@ -164,9 +162,6 @@ public class MainActivity extends AppCompatActivity {
             return restauranList.size();
         }
     }
-
-
-
 
 
 }

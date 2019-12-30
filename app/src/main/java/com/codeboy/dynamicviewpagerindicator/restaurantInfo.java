@@ -13,13 +13,13 @@ public class restaurantInfo {
 
     }
 
-    public restaurantInfo(String restaurantName, String description, String logoName) {
+    restaurantInfo(String restaurantName, String description, String logoName) {
         this.restaurantName = restaurantName;
         this.description = description;
         this.logoName = logoName;
     }
 
-    public String getRestaurantName() {
+    String getRestaurantName() {
         return restaurantName;
     }
 
@@ -27,7 +27,7 @@ public class restaurantInfo {
         this.restaurantName = restaurantName;
     }
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
@@ -35,7 +35,7 @@ public class restaurantInfo {
         this.description = description;
     }
 
-    public String getLogoName() {
+    String getLogoName() {
         return logoName;
     }
 
@@ -43,11 +43,11 @@ public class restaurantInfo {
         this.logoName = logoName;
     }
 
-    public ArrayList<dish> getDishes() {
+    ArrayList<dish> getDishes() {
         return dishes;
     }
 
-    public void setDishes(ArrayList<dish> dishes) {
+    void setDishes(ArrayList<dish> dishes) {
         this.dishes = dishes;
     }
 }

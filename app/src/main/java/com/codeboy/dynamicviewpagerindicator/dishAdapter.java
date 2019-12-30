@@ -19,11 +19,11 @@ import java.util.ArrayList;
 
 public class dishAdapter extends RecyclerView.Adapter<dishAdapter.distViewHolder>{
 
-    Context dishContx;
-    ArrayList<dish> dishes;
-    callback listener;
+    private Context dishContx;
+    private ArrayList<dish> dishes;
+    private callback listener;
 
-    public dishAdapter(Context dishContx, ArrayList<dish> dishes, callback listener) {
+    dishAdapter(Context dishContx, ArrayList<dish> dishes, callback listener) {
         this.dishContx = dishContx;
         this.dishes = dishes;
         this.listener = listener;
@@ -68,13 +68,13 @@ public class dishAdapter extends RecyclerView.Adapter<dishAdapter.distViewHolder
         return dishes.size();
     }
 
-    public class distViewHolder extends RecyclerView.ViewHolder {
+    class distViewHolder extends RecyclerView.ViewHolder {
         //instanciate views
         ImageView dishPic;
         TextView dish_name;
         TextView dish_description;
         ImageButton order;
-        public distViewHolder(@NonNull View itemView) {
+        distViewHolder(@NonNull View itemView) {
             super(itemView);
             //init views
             dishPic = itemView.findViewById(R.id.dish_image);

@@ -10,8 +10,6 @@
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
         android:layout_marginTop="1dp"
         android:background="@drawable/border_all_round_black_white"
         app:cardBackgroundColor="@color/transparent">
@@ -26,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="5dp"
-                android:layout_weight="8"
+                android:layout_weight="7.5"
                 app:srcCompat="@drawable/ic_the_only_wife" />
 
             <RatingBar
@@ -40,6 +38,15 @@
                 android:numStars="5"
                 android:rating="3"
                 android:stepSize="1" />
+
+            <View
+                android:id="@+id/bottom_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                android:layout_weight="0.5"
+                android:visibility="invisible"/>
+
         </LinearLayout>
 
         <View
